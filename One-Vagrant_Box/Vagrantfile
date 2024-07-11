@@ -1,0 +1,15 @@
+IMAGE_ubuntu_2004 = "ubuntu"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = IMAGE_ubuntu_2004
+  config.vm.hostname = "ubuntu"
+  config.vm.provider "virtualbox" do |ubuntu_srv|
+    ubuntu_srv.name = "ubuntu_srv"
+    ubuntu_srv.memory = 2048
+    ubuntu_srv.cpus = 1
+  config.ssh.username = "vagrant"
+  config.ssh.password = "P@ssw0rd"
+  config.ssh.insert_key = false
+  end
+
+end
