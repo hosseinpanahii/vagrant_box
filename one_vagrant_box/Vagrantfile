@@ -1,0 +1,15 @@
+IMAGE_ubuntu_2004   = "ubuntu"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = IMAGE_ubuntu_2004
+  config.vm.hostname = "test"
+  config.vm.provider "virtualbox" do |my_vm|
+    my_vm.name = "my_vm"
+    my_vm.memory = 1024
+    my_vm.cpus = 1
+  config.ssh.username = "vagrant"
+  config.ssh.password = "P@ssw0rd"
+  config.ssh.insert_key = false
+  end
+  config.vm.provision :shell, path: "bootstrap.sh"
+end
